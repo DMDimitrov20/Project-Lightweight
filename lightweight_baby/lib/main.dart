@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, deprecated_member_use, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,11 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lightweight Baby',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(),
       routes: {
         '/details': (context) => DetailsPage(),
       },
@@ -23,47 +26,56 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: const Text('Lightweight Baby'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 200),
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              HoverImage(
-                imagePath: 'assets/RC2.png',
-                width: 300,
-                height: 300,
+        padding: const EdgeInsets.fromLTRB(200, 50, 200, 0), // Adjust padding
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              'Every weight is lightweight!',
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(width: 20),
-              HoverImage(
-                imagePath: 'assets/RC2.png',
-                width: 300,
-                height: 300,
-              ),
-              SizedBox(width: 20),
-              HoverImage(
-                imagePath: 'assets/RC2.png',
-                width: 300,
-                height: 300,
-              ),
-              SizedBox(width: 20),
-              HoverImage(
-                imagePath: 'assets/RC2.png',
-                width: 300,
-                height: 300,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const <Widget>[
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+                SizedBox(width: 20),
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+                SizedBox(width: 20),
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+                SizedBox(width: 20),
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -188,7 +200,7 @@ class _HoverImageState extends State<HoverImage>
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'More info',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
@@ -217,7 +229,7 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Details Page'),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Details Page',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

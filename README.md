@@ -1,1 +1,1 @@
-# DDZ-Praktika-
+# Project Lighweight
