@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, deprecated_member_use, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
@@ -39,11 +39,13 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Every weight is lightweight!',
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
+            Center(
+              child: Text(
+                'Every weight is lightweight!',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(height: 20),
@@ -55,19 +57,48 @@ class MyHomePage extends StatelessWidget {
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 50), // Change the width to 50 pixels
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 50), // Change the width to 50 pixels
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 50), // Change the width to 50 pixels
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+              ],
+            ),
+            const SizedBox(height: 20), // Add spacing between the rows
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const <Widget>[
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+                SizedBox(width: 50), // Change the width to 50 pixels
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+                SizedBox(width: 50), // Change the width to 50 pixels
+                HoverImage(
+                  imagePath: 'assets/RC2.png',
+                  width: 300,
+                  height: 300,
+                ),
+                SizedBox(width: 50), // Change the width to 50 pixels
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
@@ -82,6 +113,8 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+
+
 class HoverImage extends StatefulWidget {
   final String imagePath;
   final double width;
@@ -94,6 +127,7 @@ class HoverImage extends StatefulWidget {
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _HoverImageState createState() => _HoverImageState();
 }
 
@@ -227,7 +261,7 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Details Page'),
+        title: Text('BB Info'), // Update the title
       ),
       body: const Center(
         child: Text(
