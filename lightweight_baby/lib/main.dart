@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,9 +16,6 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
-      routes: {
-        '/details': (context) => DetailsPage(),
-      },
     );
   }
 }
@@ -35,7 +30,7 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Lightweight Baby'),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(200, 50, 200, 0), // Adjust padding
+        padding: const EdgeInsets.fromLTRB(200, 50, 200, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -57,19 +52,19 @@ class MyHomePage extends StatelessWidget {
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 50), // Change the width to 50 pixels
+                SizedBox(width: 50),
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 50), // Change the width to 50 pixels
+                SizedBox(width: 50),
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 50), // Change the width to 50 pixels
+                SizedBox(width: 50),
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
@@ -77,7 +72,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20), // Add spacing between the rows
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const <Widget>[
@@ -86,19 +81,19 @@ class MyHomePage extends StatelessWidget {
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 50), // Change the width to 50 pixels
+                SizedBox(width: 50),
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 50), // Change the width to 50 pixels
+                SizedBox(width: 50),
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
                   height: 300,
                 ),
-                SizedBox(width: 50), // Change the width to 50 pixels
+                SizedBox(width: 50),
                 HoverImage(
                   imagePath: 'assets/RC2.png',
                   width: 300,
@@ -113,8 +108,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-
-
 class HoverImage extends StatefulWidget {
   final String imagePath;
   final double width;
@@ -127,7 +120,6 @@ class HoverImage extends StatefulWidget {
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _HoverImageState createState() => _HoverImageState();
 }
 
@@ -154,8 +146,11 @@ class _HoverImageState extends State<HoverImage>
     super.dispose();
   }
 
-  void _navigateToDetails() {
-    Navigator.pushNamed(context, '/details');
+  void _navigateToDetailsPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DetailsPage()),
+    );
   }
 
   @override
@@ -174,7 +169,7 @@ class _HoverImageState extends State<HoverImage>
         _animationController.reverse();
       },
       child: GestureDetector(
-        onTap: _navigateToDetails,
+        onTap: _navigateToDetailsPage,
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black),
@@ -227,7 +222,7 @@ class _HoverImageState extends State<HoverImage>
                     alignment: Alignment.center,
                     color: Colors.black.withOpacity(0.5),
                     child: ElevatedButton(
-                      onPressed: _navigateToDetails,
+                      onPressed: _navigateToDetailsPage,
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
                         shape: RoundedRectangleBorder(
@@ -257,17 +252,43 @@ class _HoverImageState extends State<HoverImage>
 }
 
 class DetailsPage extends StatelessWidget {
+  const DetailsPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BB Info'), // Update the title
+        title: const Text('Details Page'),
       ),
-      body: const Center(
-        child: Text(
-          'Details Page',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
+      body: Row(
+        children: [
+          const SizedBox(width: 77),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              width: 477,
+              height: 477,
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/RC2.png',
+                width: 477,
+                height: 477,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 20),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
