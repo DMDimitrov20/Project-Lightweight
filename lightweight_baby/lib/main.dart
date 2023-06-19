@@ -29,80 +29,93 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Lightweight Baby'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(200, 50, 200, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: Text(
-                'Every weight is lightweight!',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(200, 50, 200, 50),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      'Every weight is lightweight!',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const <Widget>[
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(width: 50),
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(width: 50),
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(width: 50),
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const <Widget>[
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(width: 50),
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(width: 50),
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                      SizedBox(width: 50),
+                      HoverImage(
+                        imagePath: 'assets/RC2.png',
+                        width: 300,
+                        height: 300,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                ],
               ),
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-                SizedBox(width: 50),
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-                SizedBox(width: 50),
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-                SizedBox(width: 50),
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-                SizedBox(width: 50),
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-                SizedBox(width: 50),
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-                SizedBox(width: 50),
-                HoverImage(
-                  imagePath: 'assets/RC2.png',
-                  width: 300,
-                  height: 300,
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: const Footer(), // Add the footer widget
+          ),
+        ],
       ),
     );
   }
@@ -136,8 +149,12 @@ class _HoverImageState extends State<HoverImage>
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
-    _darkenAnimation =
-        Tween<double>(begin: 0.0, end: 0.5).animate(_animationController);
+    _darkenAnimation = Tween<double>(begin: 0.0, end: 0.5).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
   }
 
   @override
@@ -149,7 +166,7 @@ class _HoverImageState extends State<HoverImage>
   void _navigateToDetailsPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DetailsPage()),
+      MaterialPageRoute(builder: (context) => const DetailsPage()),
     );
   }
 
@@ -260,9 +277,9 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Details Page'),
       ),
-      body: Row(
+      body: Column(
         children: [
-          const SizedBox(width: 77),
+          const SizedBox(height: 20),
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
@@ -280,15 +297,47 @@ class DetailsPage extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 20),
-              ],
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Text(
+              'Your text goes here',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
+          const Footer(), // Add the footer widget
         ],
+      ),
+    );
+  }
+}
+
+class Footer extends StatelessWidget {
+  const Footer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      color: Colors.grey,
+      alignment: Alignment.center,
+      child: const Text(
+        'This is the footer',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+        ),
       ),
     );
   }
