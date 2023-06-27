@@ -47,62 +47,48 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const <Widget>[
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                      SizedBox(width: 50),
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                      SizedBox(width: 50),
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                      SizedBox(width: 50),
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                    ],
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      final imageWidth = constraints.maxWidth * 0.2;
+                      final spacing = imageWidth * 0.1;
+
+                      return Wrap(
+                        alignment: WrapAlignment.spaceBetween,
+                        children: List.generate(
+                          4,
+                          (index) => Padding(
+                            padding: EdgeInsets.only(right: spacing),
+                            child: HoverImage(
+                              imagePath: 'assets/RC2.png',
+                              width: imageWidth,
+                              height: imageWidth,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const <Widget>[
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                      SizedBox(width: 50),
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                      SizedBox(width: 50),
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                      SizedBox(width: 50),
-                      HoverImage(
-                        imagePath: 'assets/RC2.png',
-                        width: 300,
-                        height: 300,
-                      ),
-                    ],
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      final imageWidth = constraints.maxWidth * 0.2;
+                      final spacing = imageWidth * 0.1;
+
+                      return Wrap(
+                        alignment: WrapAlignment.spaceBetween,
+                        children: List.generate(
+                          4,
+                          (index) => Padding(
+                            padding: EdgeInsets.only(right: spacing),
+                            child: HoverImage(
+                              imagePath: 'assets/RC2.png',
+                              width: imageWidth,
+                              height: imageWidth,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   const SizedBox(height: 20),
                 ],
@@ -306,17 +292,25 @@ class DetailsPage extends StatelessWidget {
                 color: Colors.black,
                 width: 2.0,
               ),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20),
             ),
-            child: Text(
-              'Your text goes here',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Column(
+              children: [
+                const Text(
+                  'Product Description',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'This is the description of the product. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut placerat elit, id tristique ex. Donec tristique semper sapien, nec pulvinar nisi volutpat nec.',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
             ),
           ),
-          const Footer(), // Add the footer widget
         ],
       ),
     );
@@ -329,14 +323,13 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      color: Colors.grey,
-      alignment: Alignment.center,
+      color: Colors.red,
+      padding: const EdgeInsets.all(20),
       child: const Text(
-        'This is the footer',
+        'Footer',
         style: TextStyle(
           color: Colors.white,
-          fontSize: 16,
+          fontSize: 18,
         ),
       ),
     );
