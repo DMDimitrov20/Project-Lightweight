@@ -79,7 +79,28 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                } else {
+                                }
+                                else if (index == 3) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/JC.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                                else if (index == 4) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/JC.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                                 else {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -108,20 +129,62 @@ class MyHomePage extends StatelessWidget {
                             alignment: WrapAlignment.spaceBetween,
                             children: List.generate(
                               4,
-                              (index) => Padding(
-                                padding: EdgeInsets.only(right: spacing),
-                                child: HoverImage(
-                                  imagePath: 'assets/RC.png',
-                                  width: imageWidth,
-                                  height: imageWidth,
-                                ),
-                              ),
+                              (index) {
+                                if (index == 1) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/DY.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                } else if (index == 2) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/TP.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                                else if (index == 3) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/FZ.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                                else if (index == 4) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/JC.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                                 else {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/LH.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                              },
                             ),
                           );
                         },
                       ),
                     ),
-                    
                   ],
                 ),
               ),
