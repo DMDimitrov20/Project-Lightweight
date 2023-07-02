@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,83 +31,125 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Lightweight Baby'),
       ),
-      body: Stack(
+      body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(200, 50, 200, 50),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Center(
-                    child: Text(
-                      'Every weight is lightweight!',
-                      style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(200, 50, 200, 50),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center, // Align children in the center
+                  children: <Widget>[
+                    Center(
+                      child: Text(
+                        'Every weight is lightweight!',
+                        style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      final imageWidth = constraints.maxWidth * 0.2;
-                      final spacing = imageWidth * 0.1;
+                     const SizedBox(height: 20),
+                    Center(
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final imageWidth = constraints.maxWidth * 0.2;
+                          final spacing = imageWidth * 0.1;
 
-                      return Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        children: List.generate(
-                          4,
-                          (index) => Padding(
-                            padding: EdgeInsets.only(right: spacing),
-                            child: HoverImage(
-                              imagePath: 'assets/RC2.png',
-                              width: imageWidth,
-                              height: imageWidth,
+                          return Wrap(
+                            alignment: WrapAlignment.spaceBetween,
+                            children: List.generate(
+                              4,
+                              (index) {
+                                if (index == 1) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/AS.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                } else if (index == 2) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/KL.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                } else {
+                                  return Padding(
+                                    padding: EdgeInsets.only(right: spacing),
+                                    child: HoverImage(
+                                      imagePath: 'assets/RC.png',
+                                      width: imageWidth,
+                                      height: imageWidth,
+                                    ),
+                                  );
+                                }
+                              },
                             ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      final imageWidth = constraints.maxWidth * 0.2;
-                      final spacing = imageWidth * 0.1;
+                          );
+                        },
+                      ),
+                    ),
+                    
+                    
+                    const SizedBox(height: 20),
+                    Center( // Center the photos
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final imageWidth = constraints.maxWidth * 0.2;
+                          final spacing = imageWidth * 0.1;
 
-                      return Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        children: List.generate(
-                          4,
-                          (index) => Padding(
-                            padding: EdgeInsets.only(right: spacing),
-                            child: HoverImage(
-                              imagePath: 'assets/RC2.png',
-                              width: imageWidth,
-                              height: imageWidth,
+                          return Wrap(
+                            alignment: WrapAlignment.spaceBetween,
+                            children: List.generate(
+                              4,
+                              (index) => Padding(
+                                padding: EdgeInsets.only(right: spacing),
+                                child: HoverImage(
+                                  imagePath: 'assets/RC.png',
+                                  width: imageWidth,
+                                  height: imageWidth,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                ],
+                          );
+                        },
+                      ),
+                    ),
+                    
+                  ],
+                ),
               ),
             ),
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: const Footer(), // Add the footer widget
+          
+          Container(
+            color: Colors.red,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: const Text(
+                  'Footer',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
     );
   }
 }
+
 
 class HoverImage extends StatefulWidget {
   final String imagePath;
@@ -263,59 +307,87 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Details Page'),
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 20),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              width: 477,
-              height: 477,
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
-              alignment: Alignment.center,
-              child: Image.asset(
-                'assets/RC2.png',
-                width: 477,
-                height: 477,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          const SizedBox(height: 20),
-          Container(
-            margin: const EdgeInsets.all(20),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-                width: 2.0,
-              ),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Product Description',
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'assets/RC.png', // Update the image path for the second image
+                    width: 477, // Adjust the width as desired
+                    height: 477, // Adjust the height as desired
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Product Description',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          'This is the description of the product. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut placerat elit, id tristique ex. Donec tristique semper sapien, nec pulvinar nisi volutpat nec.',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              child: Container(
+                width: 477, // Set the width to 477 pixels
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2.0,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Text(
+                  'Additional Information',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 10),
-                const Text(
-                  'This is the description of the product. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut placerat elit, id tristique ex. Donec tristique semper sapien, nec pulvinar nisi volutpat nec.',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+      bottomNavigationBar: const Footer(),
     );
   }
 }
+
+
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -324,7 +396,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.red,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: const Text(
         'Footer',
         style: TextStyle(
