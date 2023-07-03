@@ -1,4 +1,4 @@
-# <center> Project Lighweight
+# Project Lighweight
 
 <br>
 
