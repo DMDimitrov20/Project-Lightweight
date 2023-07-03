@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget {
                   children: <Widget>[
                     Center(
                       child: Text(
-                        'Every weight is lightweight!',
+                        'Learn the history of 8 legendary bodybuilders',
                         style: TextStyle(
                           fontSize: 36,
                           fontWeight: FontWeight.bold,
@@ -259,7 +259,7 @@ class _HoverImageState extends State<HoverImage>
   void _navigateToDetailsPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const DetailsPage()),
+      MaterialPageRoute(builder: (context) => DetailsPage(imagePath: widget.imagePath)),
     );
   }
 
@@ -362,7 +362,10 @@ class _HoverImageState extends State<HoverImage>
 }
 
 class DetailsPage extends StatelessWidget {
-  const DetailsPage({Key? key}) : super(key: key);
+  final String imagePath;
+  final bool isFirstImage;
+
+  const DetailsPage({Key? key, required this.imagePath, this.isFirstImage = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -382,9 +385,9 @@ class DetailsPage extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    'assets/RC.png', // Update the image path for the second image
-                    width: 477, // Adjust the width as desired
-                    height: 477, // Adjust the height as desired
+                    imagePath,
+                    width: 477,
+                    height: 477,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -414,6 +417,21 @@ class DetailsPage extends StatelessWidget {
                           'This is the description of the product. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut placerat elit, id tristique ex. Donec tristique semper sapien, nec pulvinar nisi volutpat nec.',
                           style: TextStyle(fontSize: 16),
                         ),
+                        if (isFirstImage) ...[
+                          const SizedBox(height: 20),
+                          const Text(
+                            'Additional Information',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          const Text(
+                            'Mr. Olympia:\n\n1998 Mr. Olympia - 1st place\n1999 Mr. Olympia - 1st place\n2000 Mr. Olympia - 1st place\n2001 Mr. Olympia - 1st place\n2002 Mr. Olympia - 1st place\n2003 Mr. Olympia - 1st place\n2004 Mr. Olympia - 1st place\n2005 Mr. Olympia - 1st place',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
                       ],
                     ),
                   ),
@@ -421,27 +439,28 @@ class DetailsPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.only(top: 20),
-              child: Container(
-                width: 477, // Set the width to 477 pixels
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 2.0,
+            if (!isFirstImage)
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                child: Container(
+                  width: 477,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Text(
-                  'Additional Information',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                  child: const Text(
+                    'Additional Information',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ),
           ],
         ),
       ),
@@ -449,6 +468,11 @@ class DetailsPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
 
 
 
