@@ -3,11 +3,11 @@
 <br>
 
 <p align = "center">
-    <img src = "https://img.shields.io/github/license/DMDimitrov20/Project-Lightweight?style=for-the-badge">
+    <img src = "https://img.shields.io/github/commit-activity/t/DMDimitrov20/Project-Lightweight?style=for-the-badge">
     <img src = "https://img.shields.io/github/last-commit/DMDimitrov20/Project-Lightweight?color=%23334FFF&style=for-the-badge">
     <img src = "https://img.shields.io/github/contributors/DMDimitrov20/Project-Lightweight?color=%23A0FF33&style=for-the-badge">
     <img src = "https://img.shields.io/github/repo-size/DMDimitrov20/Project-Lightweight?style=for-the-badge">
-
+    
 <br><hr></p>
 
 ## 💻 About
