@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lightweight Baby',
+      title: 'Lightweight',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
@@ -29,7 +29,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lightweight Baby'),
+        title: const Text('Project Lightweight'),
       ),
       body: Column(
         children: [
@@ -38,7 +38,8 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(200, 50, 200, 50),
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center, // Align children in the center
+                  crossAxisAlignment:
+                      CrossAxisAlignment.center, // Align children in the center
                   children: <Widget>[
                     Center(
                       child: Text(
@@ -49,7 +50,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                     const SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Center(
                       child: LayoutBuilder(
                         builder: (context, constraints) {
@@ -79,8 +80,7 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                }
-                                else if (index == 3) {
+                                } else if (index == 3) {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -89,8 +89,7 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                }
-                                else if (index == 4) {
+                                } else if (index == 4) {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -99,8 +98,7 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                }
-                                 else {
+                                } else {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -116,10 +114,9 @@ class MyHomePage extends StatelessWidget {
                         },
                       ),
                     ),
-                    
-                    
                     const SizedBox(height: 20),
-                    Center( // Center the photos
+                    Center(
+                      // Center the photos
                       child: LayoutBuilder(
                         builder: (context, constraints) {
                           final imageWidth = constraints.maxWidth * 0.2;
@@ -148,8 +145,7 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                }
-                                else if (index == 3) {
+                                } else if (index == 3) {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -158,8 +154,7 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                }
-                                else if (index == 4) {
+                                } else if (index == 4) {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -168,8 +163,7 @@ class MyHomePage extends StatelessWidget {
                                       height: imageWidth,
                                     ),
                                   );
-                                }
-                                 else {
+                                } else {
                                   return Padding(
                                     padding: EdgeInsets.only(right: spacing),
                                     child: HoverImage(
@@ -190,13 +184,13 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          
           Container(
             color: Colors.red,
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: const Text(
                   'Footer',
                   style: TextStyle(
@@ -212,7 +206,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
 
 class HoverImage extends StatefulWidget {
   final String imagePath;
@@ -259,7 +252,8 @@ class _HoverImageState extends State<HoverImage>
   void _navigateToDetailsPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DetailsPage(imagePath: widget.imagePath)),
+      MaterialPageRoute(
+          builder: (context) => DetailsPage(imagePath: widget.imagePath)),
     );
   }
 
@@ -365,7 +359,9 @@ class DetailsPage extends StatelessWidget {
   final String imagePath;
   final bool isFirstImage;
 
-  const DetailsPage({Key? key, required this.imagePath, this.isFirstImage = true}) : super(key: key);
+  const DetailsPage(
+      {Key? key, required this.imagePath, this.isFirstImage = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -406,7 +402,7 @@ class DetailsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Product Description',
+                          'Information',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -414,13 +410,29 @@ class DetailsPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         const Text(
-                          'This is the description of the product. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut placerat elit, id tristique ex. Donec tristique semper sapien, nec pulvinar nisi volutpat nec.',
-                          style: TextStyle(fontSize: 16),
+                          '''Ronnie Coleman: Ronnie Coleman is a legendary bodybuilder who achieved immense success in the sport. He is known for winning the IFBB Mr. Olympia title a record eight times and is considered one of the greatest bodybuilders of all time.
+
+Arnold Schwarzenegger: Arnold Schwarzenegger is an iconic figure in bodybuilding and a Hollywood actor. He won the Mr. Olympia title seven times and played a significant role in popularizing bodybuilding worldwide.
+
+Kevin Levrone: Kevin Levrone is a former professional bodybuilder known for his impressive physique and charisma. He won numerous bodybuilding titles and was regarded as one of the most aesthetically pleasing bodybuilders of his era.
+
+Jay Cutler: Jay Cutler is a retired professional bodybuilder who had a successful career in the sport. He won the Mr. Olympia title four times and was known for his mass and conditioning.
+
+Lee Haney: Lee Haney is a former ' 'bodybuilder who made history by winning the Mr. Olympia title eight consecutive times. He was known for his balanced physique and dedication to the sport.
+
+Dorian Yates: Dorian Yates is a British bodybuilder who dominated the bodybuilding scene in the 1990s. He won the Mr. Olympia title six times and revolutionized the sport with his intense training style and emphasis on conditioning.
+
+Tom Platz: Tom Platz is a retired professional bodybuilder known for his incredible leg development. He was famous for his high-intensity training and legendary squatting abilities.
+
+Frank Zane: Frank Zane is a bodybuilding legend who won the Mr. Olympia title three times. He was known for his aesthetic physique, symmetry, and attention to detail in his training.
+
+Each of these bodybuilders has left a significant impact on the sport of bodybuilding and has achieved remarkable success in their respective careers.''',
+                          style: TextStyle(fontSize: 20),
                         ),
                         if (isFirstImage) ...[
                           const SizedBox(height: 20),
                           const Text(
-                            'Additional Information',
+                            '',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -428,7 +440,7 @@ class DetailsPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           const Text(
-                            'Mr. Olympia:\n\n1998 Mr. Olympia - 1st place\n1999 Mr. Olympia - 1st place\n2000 Mr. Olympia - 1st place\n2001 Mr. Olympia - 1st place\n2002 Mr. Olympia - 1st place\n2003 Mr. Olympia - 1st place\n2004 Mr. Olympia - 1st place\n2005 Mr. Olympia - 1st place',
+                            '',
                             style: TextStyle(fontSize: 16),
                           ),
                         ],
@@ -468,13 +480,6 @@ class DetailsPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
