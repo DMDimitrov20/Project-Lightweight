@@ -192,7 +192,7 @@ class MyHomePage extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: const Text(
-                  'Footer',
+                  'Inspired by: Bodybuilding.com',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -490,7 +490,7 @@ class Footer extends StatelessWidget {
       color: Colors.red,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: const Text(
-        'Footer',
+        'Inspired by: Bodybuilding.com',
         style: TextStyle(
           color: Colors.white,
           fontSize: 18,
